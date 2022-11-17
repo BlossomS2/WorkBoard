@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>index</title>
+  <!-- Load Require CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="./css/boxicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="./css/templatemo.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/custom.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</head>
+<body>
+ <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand h1" href="/index.html">
+                <i class='bx bx-buildings bx-sm text-dark'></i>
+                <span class="text-dark h4">1bit10</span> <span class="text-primary h4"></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="navbar-toggler-success">
+                <div class="flex-fill mx-xl-5 mb-2">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+                        <li class="nav-item">
+                            <button class="btn btn-secondary" type="button" href="#"></button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary" type="button" href="#"></button>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" href="/index.html">개발팀</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" href="./assets/board/db.html">데이터팀</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" href="./assets/board/os.html">해외영업팀</a>
+                        </li>
+                        <li class="-item">
+                            <input type="button" class="btn btn-secondary" value="로그인"
+                                onclick="location.href='./assets/login/login.html'"></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+    <div class="fullpage">
+        <div class="main_container">
+            <!--board -->
+            <div class="board">
+                <h1>개발팀 업무일지</h1>
+                <table class="type09">
+                    <thead>
+                        <div class="write_btn">
+                            <a class="btn btn-secondary " href="writing.html">글쓰기</a>
+                        </div>
+                        <tr>
+                            <th scope="cols">게시자</th>
+                            <th scope="cols">제목</th>
+                            <th scope="cols">날짜</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 데이터 들어올 곳 -->
+                        <tr>
+                        <th scope="row">게시자</th> 
+                        <th>제목</th>
+                        <th>날짜</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">게시자</th> 
+                        <th>제목</th>
+                        <th>날짜</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">게시자</th> 
+                        <th>제목</th>
+                        <th>날짜</th>
+                    </tr>
+                    </tbody>
+                    
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Close board -->
+        </div>
+    </div>
+    <!-- Bootstrap -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- Load jQuery require for isotope -->
+    <script src="./js/jquery.min.js"></script>
+    <!-- Isotope -->
+    <script src="./js/isotope.pkgd.js"></script>
+    <!-- Page Script -->
+    <script>
+        $("img").mousedown(function () {
+            return false;
+        });
+    </script>
+    <script type="text/javascript">
+        new container("#container", {
+            controlArrows: false,
+            verticalCentered: true,
+            scrollbar: false,
+            navigation: true,
+            slidesNavigation: false,
+            slidesNavPosition: "bottom",
+            autoScrolling: true,
+            scrollHorizontally: false,
+            continuousVertical: false,
+            // ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾ Slider Auto Scroll ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾ //
+            // onLeave: function (origin, destination, direction) {
+            //   clearInterval(g_interval);
+            // },
+            // afterLoad: function (origin, destination, direction) {
+            //   const lapse = 10000;
+
+            //   if (destination.item.querySelectorAll(".fp-slides").length) {
+            //     g_interval = setInterval(function () {
+            //       fullpage_api.moveSlideRight();
+            //     }, lapse);
+            //   }
+            // },
+        });
+    </script>
+    <!-- Templatemo -->
+    <script src="./js/templatemo.js"></script>
+    <!-- Custom -->
+    <script src="./js/custom.js"></script>
+
+
+</body>
+</html>
