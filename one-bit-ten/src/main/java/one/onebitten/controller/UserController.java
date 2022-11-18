@@ -103,7 +103,7 @@ public class UserController {
 	@GetMapping("/index_main")
 	public String login_success(Model model) throws Exception {
 		System.out.println("success login");
-	List<BoardVo> boardList = userService.board_list();
+		List<BoardVo> boardList = userService.board_list();
 		
 		model.addAttribute("boardList", boardList);
 		return "index";
