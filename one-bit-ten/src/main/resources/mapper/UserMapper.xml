@@ -13,14 +13,24 @@
 		<id column="EMAIL" property="user_email" jdbcType="VARCHAR" />
 		<id column="AUTH" property="user_auth" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<resultMap type="one.onebitten.vo.BoardVo" id="Board">
+		<id column="NAME" property="board_name" jdbcType="INTEGER" />
+		<id column="TITLE" property="board_title" jdbcType="VARCHAR" />
+		<id column="DAY" property="board_day" jdbcType="VARCHAR" />
+	</resultMap>
 
-	<insert id="UserRegister"
-		parameterType="one.onebitten.vo.UserVo">
+	<insert id="UserRegister" parameterType="one.onebitten.vo.UserVo">
 		INSERT INTO MEMBERS(ID, NAME, PWD, EMAIL, AUTH)
 		VALUES(#{user_id},#{user_name},#{user_passwd},'',0)
 	</insert>
+	
 	<select id="login_check" resultMap="User">
 		SELECT * FROM MEMBERS WHERE id=#{user_id}
+	</select>
+	
+	<select id="board_list"  resultMap="Board">
+		SELECT * FROM BOARD
 	</select>
 
 

@@ -4,16 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>index</title>
   <!-- Load Require CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Font CSS -->
-    <link rel="stylesheet" href="./css/boxicon.min.css">
+    <link rel="stylesheet" href="/css/boxicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Load Tempalte CSS -->
-    <link rel="stylesheet" href="./css/templatemo.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="/css/custom.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 </head>
 <body>
  <!-- Header -->
@@ -80,19 +81,10 @@
                         <th>제목</th>
                         <th>날짜</th>
                     </tr>
-                    <tr>
-                        <th scope="row">게시자</th> 
-                        <th>제목</th>
-                        <th>날짜</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">게시자</th> 
-                        <th>제목</th>
-                        <th>날짜</th>
-                    </tr>
                     </tbody>
                     
                 </table>
+                
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item">
@@ -114,6 +106,15 @@
             <!-- Close board -->
         </div>
     </div>
+    <input type="hidden" id=boardList value=${boardList}>
+    <script type="text/javascript">
+    	$(function(){
+    		var list =$('boardList')
+    		console.log($('boardList').get())
+    	
+    	})
+    	
+    </script>
     <!-- Bootstrap -->
     <script src="./js/bootstrap.bundle.min.js"></script>
     <!-- Load jQuery require for isotope -->
@@ -127,7 +128,7 @@
         });
     </script>
     <script type="text/javascript">
-        new container("#container", {
+     /*   new container("#container", {
             controlArrows: false,
             verticalCentered: true,
             scrollbar: false,
@@ -136,7 +137,7 @@
             slidesNavPosition: "bottom",
             autoScrolling: true,
             scrollHorizontally: false,
-            continuousVertical: false,
+            continuousVertical: false,*/
             // ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾ Slider Auto Scroll ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾ //
             // onLeave: function (origin, destination, direction) {
             //   clearInterval(g_interval);
@@ -150,7 +151,7 @@
             //     }, lapse);
             //   }
             // },
-        });
+       // });
     </script>
     <!-- Templatemo -->
     <script src="./js/templatemo.js"></script>

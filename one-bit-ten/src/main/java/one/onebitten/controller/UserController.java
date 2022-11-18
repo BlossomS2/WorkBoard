@@ -1,5 +1,8 @@
 package one.onebitten.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,6 +21,7 @@ import com.google.gson.JsonObject;
 
 import lombok.AllArgsConstructor;
 import one.onebitten.service.UserService;
+import one.onebitten.vo.BoardVo;
 import one.onebitten.vo.UserVo;
 
 @Controller
@@ -97,8 +101,11 @@ public class UserController {
 	}
 
 	@GetMapping("/index_main")
-	public String login_success(Model model) {
+	public String login_success(Model model) throws Exception {
 		System.out.println("success login");
+	List<BoardVo> boardList = userService.board_list();
+		
+		model.addAttribute("boardList", boardList);
 		return "index";
 
 	}
