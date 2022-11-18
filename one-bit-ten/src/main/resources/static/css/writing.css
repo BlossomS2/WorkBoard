@@ -1,0 +1,19 @@
+.container {
+	padding-top: 7em;
+}
+
+.form-group {
+	padding-top: 1.2em;
+}
+
+.main_title {
+	text-align: center;
+}
+
+.submit_btn {
+	font-size: larger;
+}
+
+.text_title {
+	font-size: 2em;
+}
