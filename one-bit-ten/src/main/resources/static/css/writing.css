@@ -17,3 +17,13 @@
 .text_title {
 	font-size: 2em;
 }
+/* cursor effect  */
+.cursor__inner {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #0a0a0a;
+    transition: all .6s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity .3s cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -15,10 +15,15 @@
 	</resultMap>
 	
 	<resultMap type="one.onebitten.vo.BoardVo" id="Board">
-		<id column="NAME" property="board_name" jdbcType="INTEGER" />
+		<id column="NUM" property="board_num" jdbcType="INTEGER" />
 		<id column="TITLE" property="board_title" jdbcType="VARCHAR" />
 		<id column="DAY" property="board_day" jdbcType="VARCHAR" />
+		<id column="WRITER" property="board_writer" jdbcType="VARCHAR" />
 	</resultMap>
+	
+	<select id="check_board" resultMap="Board">
+		SELECT * FROM BOARD WHERE num=#{board_num}
+	</select>
 
 	<insert id="UserRegister" parameterType="one.onebitten.vo.UserVo">
 		INSERT INTO MEMBERS(ID, NAME, PWD, EMAIL, AUTH)

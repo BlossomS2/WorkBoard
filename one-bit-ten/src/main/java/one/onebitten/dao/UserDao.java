@@ -15,4 +15,5 @@ public interface UserDao {
 	 UserVo login_check(String id); 
 	 
 	 List<BoardVo> board_list() throws Exception;
+	 BoardVo check_board(int num);
 }

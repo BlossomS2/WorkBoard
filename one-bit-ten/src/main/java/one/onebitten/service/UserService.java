@@ -11,4 +11,5 @@ public interface UserService {
     UserVo login_check(String id) throws Exception;
     
     List<BoardVo> board_list() throws Exception;
+    BoardVo check_board(int num);
 } 

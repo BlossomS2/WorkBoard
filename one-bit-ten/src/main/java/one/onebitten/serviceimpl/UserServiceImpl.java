@@ -35,4 +35,10 @@ public class UserServiceImpl implements UserService {
 		return userMapper.board_list();
 	}
 
+	@Override
+	public BoardVo check_board(int num) {
+		
+		return userMapper.check_board(num);
+	}
+
 }

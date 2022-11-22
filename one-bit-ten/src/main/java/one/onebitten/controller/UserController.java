@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -40,10 +41,19 @@ public class UserController {
 		return "login";
 
 	}
-
-	@GetMapping("/banana")
-	public String banana() {
+	
+	@GetMapping("/board_write")
+	public String board_write() {
 		return "write";
+	}
+
+	@GetMapping("/board_detail")
+	public String board_detail(@RequestParam int board_num, Model model) {
+		BoardVo board = userService.check_board(board_num);
+		
+		model.addAttribute("board",board);
+		
+		return "check_board";
 	}
 	
 	@PostMapping("/join")

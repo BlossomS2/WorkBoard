@@ -11,7 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Data
 public class BoardVo {
-	private int board_name;
+	private int board_num;
     private String board_title;
     private String board_day;
+    private String board_writer;
 }
