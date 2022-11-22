@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Board</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon"
+	href="/example/demo/src/main/resources/static/img/apple-icon.jpg">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/example/demo/src/main/resources/static/img/favicon.ico">
+<!-- Load Require CSS -->
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font CSS -->
+<link href="/assets/css/boxicon.min.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+	rel="stylesheet">
+<!-- Load Tempalte CSS -->
+<link rel="stylesheet" href="/assets/css/templatemo.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+</head>
+
+<body>
+<div id="cursor">
+    <div class="cursor__inner"></div>
+</div>
+	<!-- Header -->
+	<nav id="main_nav"
+		class="navbar navbar-expand-lg navbar-light bg-white shadow">
+		<div
+			class="container d-flex justify-content-between align-items-center">
+			<a class="navbar-brand h1" href="/index.html"> <i
+				class='bx bx-buildings bx-sm text-dark'></i> <span
+				class="text-dark h4">1bit10</span> <span class="text-primary h4"></span>
+			</a>
+			<button class="navbar-toggler border-0" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div
+				class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+				id="navbar-toggler-success">
+				<div class="flex-fill mx-xl-5 mb-2">
+					<ul
+						class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+						<li class="nav-item">
+							<button class="btn btn-secondary" type="button" href="#"></button>
+						</li>
+						<li class="nav-item">
+							<button class="btn btn-secondary" type="button" href="#"></button>
+						</li>
+						<li class="nav-item"><a class="btn btn-secondary"
+							href="/index.html">개발팀</a></li>
+						<li class="nav-item"><a class="btn btn-secondary"
+							href="./db.html">데이터팀</a></li>
+						<li class="nav-item"><a class="btn btn-secondary"
+							href="./os.html">해외영업팀</a></li>
+						<li class="-item"><input type="button"
+							class="btn btn-secondary" value="로그인"
+							onclick="location.href='/assets/login/login.html'">
+							</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Close Header -->
+	<div class="fullpage">
+		<div class="main_container">
+			<!--board -->
+			<div class="board">
+				<h1>데이터팀 업무일지</h1>
+				<table class="type09">
+					<thead>
+						<div class="write_btn">
+							<a class="btn btn-secondary " href="/assets/board/writing.html">글쓰기</a>
+						</div>
+						<tr>
+							<th scope="cols">게시자</th>
+							<th scope="cols">제목</th>
+							<th scope="cols">날짜</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 데이터 들어올 곳 -->
+
+					</tbody>
+				</table>
+			</div>
+			<!-- Close board -->
+		</div>
+	</div>
+	<!-- Bootstrap -->
+	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+	<!-- Load jQuery require for isotope -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<!-- Isotope -->
+	<script src="/assets/js/isotope.pkgd.js"></script>
+	<!-- Page Script -->
+	<script>
+		$("img").mousedown(function() {
+			return false;
+		});
+	</script>
+	<script type="text/javascript">
+		new container("#container", {
+			controlArrows : false,
+			verticalCentered : true,
+			scrollbar : false,
+			navigation : true,
+			slidesNavigation : false,
+			slidesNavPosition : "bottom",
+			autoScrolling : true,
+			scrollHorizontally : false,
+			continuousVertical : false,
+		// ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾ Slider Auto Scroll ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾ //
+		// onLeave: function (origin, destination, direction) {
+		//   clearInterval(g_interval);
+		// },
+		// afterLoad: function (origin, destination, direction) {
+		//   const lapse = 10000;
+		//   if (destination.item.querySelectorAll(".fp-slides").length) {
+		//     g_interval = setInterval(function () {
+		//       fullpage_api.moveSlideRight();
+		//     }, lapse);
+		//   }
+		// },
+		});
+	</script>
+	<!-- Templatemo -->
+	<script src="/assets/js/templatemo.js"></script>
+	<!-- Custom -->
+	<script src="/assets/js/custom.js"></script>
+</body>
+</html>

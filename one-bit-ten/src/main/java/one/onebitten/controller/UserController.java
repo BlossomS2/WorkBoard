@@ -1,5 +1,8 @@
 package one.onebitten.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -18,6 +22,7 @@ import com.google.gson.JsonObject;
 
 import lombok.AllArgsConstructor;
 import one.onebitten.service.UserService;
+import one.onebitten.vo.BoardVo;
 import one.onebitten.vo.UserVo;
 
 @Controller
@@ -36,7 +41,21 @@ public class UserController {
 		return "login";
 
 	}
+	
+	@GetMapping("/board_write")
+	public String board_write() {
+		return "write";
+	}
 
+	@GetMapping("/board_detail")
+	public String board_detail(@RequestParam int board_num, Model model) {
+		BoardVo board = userService.check_board(board_num);
+		
+		model.addAttribute("board",board);
+		
+		return "check_board";
+	}
+	
 	@PostMapping("/join")
 	public String name(HttpServletRequest req, Model model, UserVo user) throws Exception {
 
@@ -97,8 +116,13 @@ public class UserController {
 	}
 
 	@GetMapping("/index_main")
-	public String login_success(Model model) {
+	public String login_success(Model model) throws Exception {
 		System.out.println("success login");
+		
+		JsonObject jsonObject = new JsonObject();
+		
+		//jsonObject.addProperty("boardL",userService.board_list());
+		model.addAttribute("boardList",userService.board_list() );
 		return "index";
 
 	}

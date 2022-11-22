@@ -9,13 +9,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class UserVo {
-	private String user_id;
-    private String user_name;
-    private String user_passwd;
-    private String user_email;
-    private int user_auth;
-
+public class BoardVo {
+	private int board_num;
+    private String board_title;
+    private String board_day;
+    private String board_writer;
 }

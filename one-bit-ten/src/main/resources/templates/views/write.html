@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <title>글쓰기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/writing.css" >
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <!-- summernote -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+</head>
+
+<body>
+<div id="cursor">
+    <div class="cursor__inner"></div>
+</div>
+    <div class="container">
+        <!-- <h2 class="main_title">게시판 글쓰기</h2> -->
+        <form action="write.jsp" method="post">
+            <div class="form-group">
+                <label for="title" class="text_title">제목</label>
+                <input type="text" class="form-control" id="title" placeholder="제목 입력(4-100)" name="title"
+                    maxlength="100" required="required" pattern=".{4,100}">
+            </div>
+            <div class="form-group">
+                <div id="summernote"></div>
+            </div>
+            <div class="form-group">
+                <label for="writer" class="text_title">작성자</label>
+                <input type="text" class="form-control" id="writer" placeholder="작성자(2자-10자)" name="writer">
+            </div>
+            <button type="submit" class="submit_btn">등록하기</button>
+        </form>
+    </div>
+</body>
+<script>
+    $('#summernote').summernote({
+        placeholder: '내용을 입력해주세요',
+        tabsize: 2,
+        height: 300
+    
+    });
+</script>
+
+<script>
+    $.ajax({
+        type:'POST',
+        url:'index',
+        dataType:'json',
+        contentType:'application/jason; charset="utf-8',
+        data:JSON.stringify(data)
+    }).done(function(){
+        alert('글이 등록되었습니다');
+        location.href = '/';
+    })
+    
+</script>
+
+
+</html>
