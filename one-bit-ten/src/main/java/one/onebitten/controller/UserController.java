@@ -23,6 +23,7 @@ import com.google.gson.JsonObject;
 import lombok.AllArgsConstructor;
 import one.onebitten.service.UserService;
 import one.onebitten.vo.BoardVo;
+import one.onebitten.vo.GroupVO;
 import one.onebitten.vo.UserVo;
 
 @Controller
@@ -42,18 +43,10 @@ public class UserController {
 
 	}
 	
-	@GetMapping("/board_write")
-	public String board_write() {
-		return "write";
-	}
-
-	@GetMapping("/board_detail")
-	public String board_detail(@RequestParam int board_num, Model model) {
-		BoardVo board = userService.check_board(board_num);
-		
-		model.addAttribute("board",board);
-		
-		return "check_board";
+	@PostMapping("id_check")
+	@ResponseBody
+	public String id_check(@RequestBody String user_id) {
+		return "";
 	}
 	
 	@PostMapping("/join")
@@ -115,17 +108,6 @@ public class UserController {
 		return msgResult;
 	}
 
-	@GetMapping("/index_main")
-	public String login_success(Model model) throws Exception {
-		System.out.println("success login");
-		
-		JsonObject jsonObject = new JsonObject();
-		
-		//jsonObject.addProperty("boardL",userService.board_list());
-		model.addAttribute("boardList",userService.board_list() );
-		return "index";
-
-	}
 
 	@GetMapping("/join")
 	// @ResponseBody
@@ -135,7 +117,10 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	public String login() {
+	public String login(Model model) throws Exception {
+		List<GroupVO> groupList = userService.group_list();
+		model.addAttribute("groupList",groupList);
+		
 		System.out.println("inside controller /login");
 		return "login";
 	}

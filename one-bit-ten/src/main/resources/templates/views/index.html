@@ -17,9 +17,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 </head>
 <body th:inline="text">
-<div id="cursor">
-    <div class="cursor__inner"></div>
-</div>
  <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
@@ -53,7 +50,7 @@
                         </li>
                         <li class="-item">
                             <input type="button" class="btn btn-secondary" value="로그인"
-                                onclick="location.href='./assets/login/login.html'"></button>
+                                onclick="location.href='/login'">
                         </li>
                     </ul>
                 </div>
@@ -79,8 +76,8 @@
                     </thead>
                     <tbody>
                         <!-- 데이터 들어올 곳 -->
-                        <tr th:each="board : ${boardList}">
-                        	<td class="click_action" scope="row"><a th:text="${board.board_num}" th:href="@{'board_detail'(board_num=${board.board_num})}"></a></td>                    
+                        <tr th:each="board, i : ${boardList}">
+                        	<td class="click_action" scope="row"><a th:text="${i.index+1}" th:href="@{'board_detail'(board_num=${board.board_num})}"></a></td>                    
 	                        <td class="click_action" scope="row"><a th:text="${board.board_title}" th:href="@{'board_detail'(board_num=${board.board_num})}"></a></td>
 	                        <td class="click_action" scope="row"><a th:text="${board.board_writer}" th:href="@{'board_detail'(board_num=${board.board_num})}"></a></td> 
 	                        <td class="click_action" scope="row"><a th:text="${board.board_day} " th:href="@{'board_detail'(board_num=${board.board_num})}"></a></td>                         
@@ -165,7 +162,6 @@
     <script src="./js/templatemo.js"></script>
     <!-- Custom -->
     <script src="./js/custom.js"></script>
-
-
+    
 </body>
 </html>

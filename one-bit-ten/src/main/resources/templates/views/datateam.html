@@ -24,9 +24,6 @@
 </head>
 
 <body>
-<div id="cursor">
-    <div class="cursor__inner"></div>
-</div>
 	<!-- Header -->
 	<nav id="main_nav"
 		class="navbar navbar-expand-lg navbar-light bg-white shadow">
@@ -63,39 +60,79 @@
 						<li class="-item"><input type="button"
 							class="btn btn-secondary" value="로그인"
 							onclick="location.href='/assets/login/login.html'">
-							</button></li>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</nav>
 	<!-- Close Header -->
-	<div class="fullpage">
-		<div class="main_container">
-			<!--board -->
-			<div class="board">
-				<h1>데이터팀 업무일지</h1>
-				<table class="type09">
-					<thead>
-						<div class="write_btn">
-							<a class="btn btn-secondary " href="/assets/board/writing.html">글쓰기</a>
-						</div>
-						<tr>
-							<th scope="cols">게시자</th>
-							<th scope="cols">제목</th>
-							<th scope="cols">날짜</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- 데이터 들어올 곳 -->
-
-					</tbody>
-				</table>
-			</div>
-			<!-- Close board -->
-		</div>
-	</div>
-	<!-- Bootstrap -->
+	<div id="mainWrapper">
+		<ul style="padding-top: 8rem">
+			<!-- 게시판 제목 -->
+			<li>데이터팀 게시판</li>
+			<!-- 게시판 목록  -->
+			<li>
+				<ul id="ulTable">
+					<li>
+						<ul>
+							<li>No</li>
+							<li>제목</li>
+							<li>작성일</li>
+							<li>작성자</li>
+						</ul>
+					</li>
+					<!-- 게시물이 출력될 영역 -->
+					<li>
+						<ul>
+							<li>1</li>
+							<li class="left">그라데이션</li>
+							<li>2022-11-23</li>
+							<li>하나둘</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>2</li>
+							<li class="left">제목제목제목제목1</li>
+							<li>2022-11-23</li>
+							<li>셋넷</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>3</li>
+							<li class="left">제목제목제목제목1</li>
+							<li>2022-11-23</li>
+							<li>다섯여섯</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>4</li>
+							<li class="left">제목제목제목제목1</li>
+							<li>2022-11-23</li>
+							<li>일곱여덟</li>
+						</ul> <li>
+				</ul>
+            </li>
+            <!-- 게시판 페이징 영역 -->
+            <li>
+                <div id="divPaging">
+                    <div>◀</div>
+                    <div>
+						<b>1</b>
+					</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>▶</div>
+                </div>
+            </li> 
+        </ul>
+    </div>
+<!-- Bootstrap --> 
 	<script src="/assets/js/bootstrap.bundle.min.js"></script>
 	<!-- Load jQuery require for isotope -->
 	<script src="/assets/js/jquery.min.js"></script>
@@ -136,5 +173,6 @@
 	<script src="/assets/js/templatemo.js"></script>
 	<!-- Custom -->
 	<script src="/assets/js/custom.js"></script>
-</body>
+
+	</body>
 </html>

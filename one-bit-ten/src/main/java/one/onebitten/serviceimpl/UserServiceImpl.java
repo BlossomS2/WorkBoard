@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import one.onebitten.dao.UserDao;
 import one.onebitten.service.UserService;
 import one.onebitten.vo.BoardVo;
+import one.onebitten.vo.GroupVO;
 import one.onebitten.vo.UserVo;
 
 
@@ -39,6 +40,30 @@ public class UserServiceImpl implements UserService {
 	public BoardVo check_board(int num) {
 		
 		return userMapper.check_board(num);
+	}
+
+	@Override
+	public int board_insert(BoardVo boardVo) throws Exception {
+		
+		return userMapper.board_insert(boardVo);
+	}
+
+	@Override
+	public int board_update(BoardVo boardVo) throws Exception {
+		
+		return userMapper.board_update(boardVo);
+	}
+
+	@Override
+	public int board_delete(int num) throws Exception {
+		
+		return userMapper.board_delete(num);
+	}
+
+	@Override
+	public List<GroupVO> group_list() throws Exception {
+		
+		return userMapper.group_list();
 	}
 
 }

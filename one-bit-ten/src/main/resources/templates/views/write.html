@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/writing.css" >
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <!-- summernote -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
@@ -23,10 +25,10 @@
 </div>
     <div class="container">
         <!-- <h2 class="main_title">게시판 글쓰기</h2> -->
-        <form action="write.jsp" method="post">
+        <div>
             <div class="form-group">
                 <label for="title" class="text_title">제목</label>
-                <input type="text" class="form-control" id="title" placeholder="제목 입력(4-100)" name="title"
+                <input type="text" class="form-control" id="board_title" placeholder="제목 입력(4-100)" name="board_title"
                     maxlength="100" required="required" pattern=".{4,100}">
             </div>
             <div class="form-group">
@@ -34,10 +36,10 @@
             </div>
             <div class="form-group">
                 <label for="writer" class="text_title">작성자</label>
-                <input type="text" class="form-control" id="writer" placeholder="작성자(2자-10자)" name="writer">
+                <input type="text" class="form-control" id="board_writer" placeholder="작성자(2자-10자)"  name="board_writer">
             </div>
-            <button type="submit" class="submit_btn">등록하기</button>
-        </form>
+            <button class="submit_btn" onclick="board_insert()">등록하기</button>
+        </div>
     </div>
 </body>
 <script>
@@ -47,8 +49,57 @@
         height: 300
     
     });
-</script>
+    
+   function board_insert(){
+	    var summernoteContent = $('#summernote').summernote('code');
+	    var today = new Date();
+		
+	    //여기서 현재 날
+	    var year = today.getFullYear();
+	    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+	    var day = ('0' + today.getDate()).slice(-2);
 
+	    var dateString = year + '-' + month  + '-' + day;
+
+	    console.log(dateString);
+	   
+	    const title = $('#board_title').val();
+	    const writer = $('#board_writer').val();
+	   
+	   const boardVo ={
+			   "board_title":title,
+			   "board_text":summernoteContent,
+			   "board_writer":writer,
+			   "board_day":dateString
+	   }
+	  
+	   $.ajax({
+		   method: "POST",
+	   	   url: "/board_insert",
+           contentType: "application/json",
+           dataType: "json",
+           data: JSON.stringify(boardVo),
+           success: function (result) {
+        	   console.log(result)
+   
+        	   if(result.msg=="SUCCESS"){
+        		   
+        		   alert("게시글 등록이 완료되었습니다.")
+        	   	   location.href="/index_main";
+        	    
+        	   }else{
+        		   alert("빈칸없이 입력해주세요.");
+        	   }
+        	   
+           },error:function(){
+        	   console.log("faild")
+           }
+	   })
+	   
+   } 
+    
+</script>
+<!--  
 <script>
     $.ajax({
         type:'POST',
@@ -62,6 +113,6 @@
     })
     
 </script>
-
+-->
 
 </html>

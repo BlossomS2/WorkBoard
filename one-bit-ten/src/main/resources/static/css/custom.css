@@ -1,61 +1,116 @@
 @charset "UTF-8";
 
 /* -------------------- Table Start ------------------------------ */
-table.type09 {
-  border-collapse: collapse;
-  text-align: left;
-  line-height: 1.5;
-  padding-top: 15%
+body {
+    line-height: 2em;
+    font-family: "맑은 고딕";
 }
 
-table.type09 thead th {
-  padding: 10px;
-  padding-top: 3rem;
-  vertical-align: top;
-  color: black;
-  border-bottom: 3px solid #a199e1;
+ul,
+li {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#mainWrapper {
+    width: 800px;
+    margin: 0 auto;
+    /*가운데 정렬*/
+}
+
+#mainWrapper>ul>li:first-child {
+    text-align: center;
+    font-size: 14pt;
+    height: 40px;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+#ulTable {
+    margin-top: 10px;
+}
+
+
+#ulTable>li:first-child>ul>li {
+    background-color: #c9c9c9;
+    font-weight: bold;
+    text-align: center;
+}
+
+#ulTable>li>ul {
+    clear: both;
+    padding: 0px auto;
+    position: relative;
+    min-width: 40px;
+}
+
+#ulTable>li>ul>li {
+    float: left;
+    font-size: 10pt;
+    border-bottom: 1px solid silver;
+    vertical-align: baseline;
+}
+
+#ulTable>li>ul>li:first-child {
+    width: 10%;
+}
+
+/*No 열 크기*/
+#ulTable>li>ul>li:first-child+li {
+    width: 45%;
+}
+
+/*제목 열 크기*/
+#ulTable>li>ul>li:first-child+li+li {
+    width: 20%;
+}
+
+/*작성일 열 크기*/
+#ulTable>li>ul>li:first-child+li+li+li {
+    width: 15%;
+}
+
+/*작성자 열 크기*/
+#ulTable>li>ul>li:first-child+li+li+li+li {
+    width: 10%;
+}
+
+/*조회수 열 크기*/
+
+#divPaging {
+    clear: both;
+    margin: 0 auto;
+    width: 220px;
+    height: 50px;
+}
+
+#divPaging>div {
+    float: left;
+    width: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#liSearchOption {
+    clear: both;
+}
+
+#liSearchOption>div {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: auto;
+    height: 100px;
 
 }
 
-table.type09 tbody th {
-  width: 150px;
-  padding: 10px;
-
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  /* background: #f3f6f7; */
-}
-
-table.type09 td {
-  width: 350px;
-  padding: 10px;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
+.left {
+    text-align: left;
 }
 
 /* ----------------------Table Finish -------------------------- */
 /* ----------------------Main Start----------------------------- */
-.main_container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  justify-items: center;
-  gap: 20px;
-  padding-top: 3em;
-}
-
-.flex-fill .-item login_btn {
-  color: white;
-}
-
-.main_nav {
-  padding: 0;
-}
-.pagination {
-  margin: 30px 20px 0px 0px;
-}
 
 /* ---------------------Main Finish-------------------------- */
 /* ---------------------Board Start---------------------------*/
@@ -104,6 +159,7 @@ header ul {
   height: 100%;
   display: flex;
   justify-content: space-between;
+  text-align:center;
 }
 
 header ul>li {
@@ -115,14 +171,4 @@ header ul>li {
 
 .write_btn {
   padding-left: 30rem;
-}
-/* cursor effect */
-.cursor__inner {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #0a0a0a;
-    transition: all .6s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity .3s cubic-bezier(0.16, 1, 0.3, 1);
 }

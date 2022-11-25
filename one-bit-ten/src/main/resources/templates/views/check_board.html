@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/writing.css">
     <link rel="stylesheet" type="text/css" href="./static/css/checkboard.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f0601b0fb2.js" crossorigin="anonymous"></script>
@@ -25,7 +27,7 @@
 <body>
     <div class="container">
         <!-- <h2 class="main_title">게시판 글쓰기</h2> -->
-        <form action="write.jsp" method="post">
+        <div >
         	<div class="form-group">
                 <label for="num" class="title">WRITER</label>
                 <input type="text" class="form-control" id="num" name="board_num" readonly="readonly"
@@ -34,29 +36,37 @@
             <div class="form-group">
                 <label for="title" class="text_title" >TITLE</label>
                 <input class="form-control" id="title" name="board_title" maxlength="100"  required="required"
-                    pattern=".{4,100}" th:value="${board.board_title}" readonly="readonly">
+                    pattern=".{4,100}" th:value="${board.board_title}" >
             </div>
             <div class="form-group">
                 <div id="summernote"></div>
             </div>
             <div class="form-group">
                 <label for="writer" class="title">WRITER</label>
-                <input type="text" class="form-control" id="writer" name="board_writer" readonly="readonly"
+                <input type="text" class="form-control" id="writer" name="board_writer" 
                 th:value="${board.board_writer}">              
+            </div>
+             <div class="form-group">
+                <label for="text" class="title">TEXT</label>
+                <textarea class="form-control" id="text" th:text="${board.board_text}" style="overflow: auto; height:100%; width:100%;"></textarea>         
             </div>
             <div class="form-group">
                 <label for="day" class="title">DAY</label>
-                <input type="text" class="form-control" id="day" name="day" readonly="readonly"
-                th:value="${board.board_day}">              
+                <input type="text" class="form-control" id="day" name="board_day"
+                th:value="${board.board_day}">        
             </div>
             <div class="btn btn__secondary">
-                <p>목록으로</p>
+                <p>
+                	<a th:href="index_main">목록으로</a>&nbsp;&nbsp;
+                	<input type="button"  id="updateBtn" th:value="수정완료" onclick="update_board()">
+                	<input type="button"  id="deleteBtn" th:value="삭제하기" onclick="delete_board()">
+                </p>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 <script>
-    /*  play button  */
+    /*  play button 
     playBtn.addEventListener('click', function (e) {
         e.preventDefault();
         pause.classList.toggle('visibility');
@@ -65,6 +75,100 @@
         wave1.classList.toggle('paused');
         wave2.classList.toggle('paused');
     });
+     */
+     
+     function delete_board(){
+    		const num = $("#num").val();
+    		
+    		var flag = confirm("정밀로 삭제 하시겠습니까?")
+    		
+    		if(flag){
+    			
+    		
+    		
+    		$.ajax({
+    			   method: "POST",
+    		   	   url: "/board_delete",
+    	           contentType: "application/json",
+    	           dataType: "json",
+    	           data: JSON.stringify({"board_num":num}),
+    	           success: function (result) {
+    	        	   console.log(result)
+    	   
+    	        	   if(result.msg=="SUCCESS"){
+    	        		   
+    	        		   alert("게시글 삭제 되었습니다.")
+    	        	   	   location.href="index_main";
+    	        		   
+    	        	    
+    	        	   }else{
+    	        		   alert("실패!!!다시 시도해주세요!!");
+    	        	   }
+    	        	   
+    	           },error:function(){
+    	        	   console.log("faild")
+    	           }
+    		   })
+    		}else{
+    			location.reload();
+    		}
+    		
+     }
+     
+     
+     ///////////////////////////////////////////////
+
+     function update_board(){
+    	
+ 	
+	    var today = new Date();
+		
+	    //여기서 현재 날
+	    var year = today.getFullYear();
+	    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+	    var day = ('0' + today.getDate()).slice(-2);
+
+	    var dateString = year + '-' + month  + '-' + day;
+
+	    console.log(dateString);
+	   
+	    const title = $('#title').val();
+	    const writer = $('#writer').val();
+	   	const text =$('#text').text();
+	   	const num = $("#num").val();
+	   	const boardVo ={
+				"board_num":num,
+			    "board_title":title,
+			    "board_text":text,
+			    "board_writer":writer,
+			    "board_day":dateString
+	   }
+	 
+	   $.ajax({
+		   method: "POST",
+	   	   url: "/board_update",
+           contentType: "application/json",
+           dataType: "json",
+           data: JSON.stringify(boardVo),
+           success: function (result) {
+        	   console.log(result)
+   
+        	   if(result.msg=="SUCCESS"){
+        		   
+        		   alert("게시글 수정이 완료되었습니다.")
+        	   	   location.href="/board_detail?board_num="+num;
+        	    
+        	   }else{
+        		   alert("수정실패!!!다시 시도해주세요!!");
+        	   }
+        	   
+           },error:function(){
+        	   console.log("faild")
+           }
+	   })
+	  
+   
+ }
 </script>
 
 </html>

@@ -11,11 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserVo {
+public class UserVo { 
 	private String user_id;
     private String user_name;
     private String user_passwd;
     private String user_email;
-    private int user_auth;
+    private String group_name;
 
 }

@@ -1,5 +1,6 @@
 package one.onebitten.vo;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -11,10 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BoardVo {
-	private int board_num;
-    private String board_title;
-    private String board_day;
-    private String board_writer;
-    private String board_text;
+public class GroupVO {
+	private int group_num;
+	private String group_alias;
+	private String group_name;
+	
+	
 }

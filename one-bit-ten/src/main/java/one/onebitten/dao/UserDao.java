@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import one.onebitten.vo.BoardVo;
+import one.onebitten.vo.GroupVO;
 import one.onebitten.vo.UserVo;
 
 
@@ -16,4 +17,8 @@ public interface UserDao {
 	 
 	 List<BoardVo> board_list() throws Exception;
 	 BoardVo check_board(int num);
+	 int board_insert(BoardVo boardVo) throws Exception;
+	 int board_update(BoardVo boardVo) throws Exception;
+	 int board_delete(int num) throws Exception;
+	 List<GroupVO> group_list() throws Exception;
 }
